@@ -199,8 +199,8 @@ def show_result(p):
 
 
 def main(path):
-
     p = Path(path)
+    folder = Path(path)
     try:
         sort_file(folder, p)
     except FileNotFoundError:
@@ -210,6 +210,8 @@ def main(path):
 
 
 if __name__ == "__main__":
-    path = sys.argv[1]
-    folder = Path(path)
-    main(path)
+    if len(sys.argv) > 0:
+        path = sys.argv[1]
+        main(path)
+    else:
+        print("Не вказано шлях до папки")
